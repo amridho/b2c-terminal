@@ -1,0 +1,17 @@
+[
+    {
+        "observation_time": "2026-01-22T10:58:03+07:00",
+        "market_object": "amazon:B0BSHF7WHW",
+        "actor_id": "amazon_retail",
+        "signal_type": "price_observed",
+        "observation_status": "blocked",
+        "signal_value": null,
+        "provenance": {
+            "source": "https://www.amazon.com/dp/B0BSHF7WHW",
+            "collection_method": "http_fetch_single_attempt",
+            "freshness_class": "unknown",
+            "reliability_class": "unknown",
+            "failure_notes": "Bot detection block. Page returned challenge instead of content. No retry attempted. No bypass attempted."
+        }
+    }
+]
