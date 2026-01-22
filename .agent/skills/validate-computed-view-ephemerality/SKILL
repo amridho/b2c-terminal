@@ -1,0 +1,31 @@
+---
+name: validate_computed_view_ephemerality
+description: |
+  Check that computed views (like latency, share, volatility) are not
+  persisted in data structures or schema artifacts. Only raw observations
+  are permitted. This validator inspects file contents and rejects any
+  persistence or reuse of ephemeral metrics.
+---
+
+# Validate Computed View Ephemerality
+
+## Input
+- File or directory path containing artifacts
+- Optionally a list of candidate view names
+
+## Rules
+- Files must not contain computed field names such as:
+  - `latency`
+  - `volatility`
+  - `share_of_voice`
+  - `efficiency_ratio`
+  - any suffix indicating computed/store
+
+## Failure Handling
+- Any presence of patterns matching computed fields → reject
+
+## Output
+- `"EPHEMERAL_OK"` or `"EPHEMERAL_VIOLATION"` + details
+
+## Scripts
+The following script supports pattern checking:
