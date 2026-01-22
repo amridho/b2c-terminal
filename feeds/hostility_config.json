@@ -1,0 +1,46 @@
+{
+    "description": "Hostility simulation configuration. Manual selection only. No randomness. No retries.",
+    "version": "1.0.0",
+    "feeds": {
+        "price_feed": {
+            "failure_mode": "observed",
+            "allowed_modes": [
+                "observed",
+                "missing",
+                "blocked",
+                "stale"
+            ],
+            "notes": "Manually set to simulate hostile conditions. No auto-recovery."
+        },
+        "visibility_feed": {
+            "failure_mode": "observed",
+            "allowed_modes": [
+                "observed",
+                "missing",
+                "blocked",
+                "stale"
+            ],
+            "notes": "Manually set to simulate hostile conditions. No auto-recovery."
+        },
+        "input_proxy_feed": {
+            "failure_mode": "observed",
+            "allowed_modes": [
+                "observed",
+                "missing",
+                "blocked",
+                "stale"
+            ],
+            "notes": "Manually set to simulate hostile conditions. No auto-recovery."
+        }
+    },
+    "constraints": {
+        "no_randomness": true,
+        "no_retries": true,
+        "no_auto_recovery": true,
+        "manual_selection_only": true
+    },
+    "ui_visibility": {
+        "show_active_mode": true,
+        "show_failure_notes": true
+    }
+}

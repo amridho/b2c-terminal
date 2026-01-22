@@ -1,0 +1,96 @@
+{
+    "interface": "price_feed",
+    "version": "1.0.0",
+    "description": "Feed interface for price observation data. Contract only — no implementation.",
+    "input_parameters": {
+        "market_object": {
+            "type": "string",
+            "description": "Abstract identifier for the market object",
+            "required": true
+        },
+        "actor_id": {
+            "type": "string",
+            "description": "Opaque identifier for the observing actor",
+            "required": true
+        },
+        "observation_time": {
+            "type": "string",
+            "format": "ISO 8601",
+            "description": "Timestamp of the observation request",
+            "required": true
+        }
+    },
+    "output_shape": {
+        "observation_time": {
+            "type": "string",
+            "format": "ISO 8601",
+            "required": true
+        },
+        "market_object": {
+            "type": "string",
+            "required": true
+        },
+        "actor_id": {
+            "type": "string",
+            "required": true
+        },
+        "signal_type": {
+            "type": "string",
+            "enum": [
+                "price_observed"
+            ],
+            "required": true
+        },
+        "signal_value": {
+            "type": "number",
+            "description": "Raw numeric price value",
+            "required": true
+        },
+        "provenance": {
+            "type": "object",
+            "required": true
+        },
+        "observation_status": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "provenance_fields": {
+        "source": {
+            "type": "string",
+            "description": "Origin of the observation",
+            "required": true
+        },
+        "collection_method": {
+            "type": "string",
+            "description": "How the observation was collected",
+            "required": true
+        },
+        "freshness_class": {
+            "type": "string",
+            "description": "Data freshness classification",
+            "required": true
+        },
+        "reliability_class": {
+            "type": "string",
+            "description": "Data reliability classification",
+            "required": true
+        },
+        "failure_notes": {
+            "type": "string",
+            "description": "Notes on any failure conditions",
+            "required": false
+        }
+    },
+    "allowed_observation_status": [
+        "observed",
+        "missing",
+        "blocked",
+        "stale"
+    ],
+    "constraints": {
+        "no_inference": true,
+        "no_auto_recovery": true,
+        "no_default_values": true
+    }
+}

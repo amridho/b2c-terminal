@@ -1,0 +1,16 @@
+[
+    {
+        "observation_time": "2026-01-22T10:00:00Z",
+        "market_object": "market_obj_1",
+        "actor_id": "actor_1",
+        "signal_type": "price_observed",
+        "observation_status": "observed",
+        "signal_value": 0.0,
+        "provenance": {
+            "source": "[STUB_VALUE]_price_source",
+            "collection_method": "[STUB_VALUE]_manual_stub",
+            "freshness_class": "stub",
+            "reliability_class": "stub"
+        }
+    }
+]
