@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Observation Frame Viewer - Phase 2 UI Skeleton">
+    <title>Observation Frame Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Observation Frame Viewer</h1>
+            <p class="governance-notice">Phase 2 — UI Skeleton Only</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Frame Selector -->
+            <section class="control-panel">
+                <div class="control-group">
+                    <label class="control-label">Select Frame</label>
+                    <div class="frame-selector" role="tablist">
+                        <button 
+                            id="frame-market-aggressiveness" 
+                            class="frame-button" 
+                            role="tab" 
+                            aria-selected="false"
+                            data-frame="market_aggressiveness">
+                            Market Aggressiveness
+                        </button>
+                        <button 
+                            id="frame-visibility-dominance" 
+                            class="frame-button" 
+                            role="tab" 
+                            aria-selected="false"
+                            data-frame="visibility_dominance">
+                            Visibility Dominance
+                        </button>
+                        <button 
+                            id="frame-efficiency-stress" 
+                            class="frame-button" 
+                            role="tab" 
+                            aria-selected="false"
+                            data-frame="efficiency_stress">
+                            Efficiency Stress
+                        </button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Output Unit</label>
+                    <div class="output-selector">
+                        <span class="output-unit-display" id="output-unit">Revenue per day</span>
+                        <span class="output-unit-note">(view-only)</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Frame Views -->
+            <div class="frame-views">
+                <!-- Market Aggressiveness Frame -->
+                <article id="view-market-aggressiveness" class="frame-view" data-frame="market_aggressiveness" hidden>
+                    <header class="frame-header">
+                        <h2>Market Aggressiveness</h2>
+                    </header>
+                    
+                    <div class="indicator-toggles">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="toggle-price-observed" class="indicator-toggle" data-indicator="price_observed">
+                            <span class="toggle-text">price_observed</span>
+                        </label>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-area" id="chart-market-aggressiveness">
+                            <div class="chart-y-axis">
+                                <span class="axis-label">Price Delta (%)</span>
+                                <div class="axis-ticks">
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                </div>
+                            </div>
+                            <div class="chart-plot-area">
+                                <div class="empty-state" id="empty-state-market">
+                                    <span class="empty-icon">○</span>
+                                </div>
+                            </div>
+                            <div class="chart-x-axis">
+                                <span class="axis-label">Observation Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="frame-notices">
+                        <p class="notice">No data loaded.</p>
+                        <p class="notice">Derived metrics are not persisted.</p>
+                        <p class="notice">This view does not recommend actions.</p>
+                    </footer>
+                </article>
+
+                <!-- Visibility Dominance Frame -->
+                <article id="view-visibility-dominance" class="frame-view" data-frame="visibility_dominance" hidden>
+                    <header class="frame-header">
+                        <h2>Visibility Dominance</h2>
+                    </header>
+                    
+                    <div class="indicator-toggles">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="toggle-visibility-observed" class="indicator-toggle" data-indicator="visibility_observed">
+                            <span class="toggle-text">visibility_observed</span>
+                        </label>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-area" id="chart-visibility-dominance">
+                            <div class="chart-y-axis">
+                                <span class="axis-label">Visibility Index</span>
+                                <div class="axis-ticks">
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                </div>
+                            </div>
+                            <div class="chart-plot-area">
+                                <div class="empty-state" id="empty-state-visibility">
+                                    <span class="empty-icon">○</span>
+                                </div>
+                            </div>
+                            <div class="chart-x-axis">
+                                <span class="axis-label">Observation Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="frame-notices">
+                        <p class="notice">No data loaded.</p>
+                        <p class="notice">Derived metrics are not persisted.</p>
+                        <p class="notice">This view does not recommend actions.</p>
+                    </footer>
+                </article>
+
+                <!-- Efficiency Stress Frame -->
+                <article id="view-efficiency-stress" class="frame-view" data-frame="efficiency_stress" hidden>
+                    <header class="frame-header">
+                        <h2>Efficiency Stress</h2>
+                    </header>
+                    
+                    <div class="indicator-toggles">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="toggle-input-proxy-observed" class="indicator-toggle" data-indicator="input_proxy_observed">
+                            <span class="toggle-text">input_proxy_observed</span>
+                        </label>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-area" id="chart-efficiency-stress">
+                            <div class="chart-y-axis">
+                                <span class="axis-label">Input Proxy Value</span>
+                                <div class="axis-ticks">
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                    <span>—</span>
+                                </div>
+                            </div>
+                            <div class="chart-plot-area">
+                                <div class="empty-state" id="empty-state-efficiency">
+                                    <span class="empty-icon">○</span>
+                                </div>
+                            </div>
+                            <div class="chart-x-axis">
+                                <span class="axis-label">Observation Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="frame-notices">
+                        <p class="notice">No data loaded.</p>
+                        <p class="notice">Derived metrics are not persisted.</p>
+                        <p class="notice">This view does not recommend actions.</p>
+                    </footer>
+                </article>
+
+                <!-- No Frame Selected State -->
+                <div id="no-frame-selected" class="no-selection-state">
+                    <p>Select a frame to view.</p>
+                    <p class="exclusion-notice">No frame is selected by default.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p class="exclusion-statement">
+                Exclusions: No mock data. No computed values. No summaries. No recommendations.
+            </p>
+            <p class="limit-statement">
+                Limits: Toggles affect placeholder visibility only. Switching frames carries no implicit meaning.
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

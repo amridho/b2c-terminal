@@ -1,0 +1,360 @@
+/* Phase 2 UI Skeleton Styles */
+/* Deliberately restrained — no urgency, no performance implication */
+
+:root {
+    --color-bg: #1a1a1f;
+    --color-surface: #242429;
+    --color-surface-elevated: #2d2d33;
+    --color-border: #3a3a42;
+    --color-text-primary: #a8a8b0;
+    --color-text-secondary: #6a6a72;
+    --color-text-muted: #4a4a52;
+    --color-accent-neutral: #5a5a64;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-lg);
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+}
+
+.governance-notice {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Control Panel */
+.control-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.control-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Frame Selector */
+.frame-selector {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.frame-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.frame-button:hover {
+    border-color: var(--color-accent-neutral);
+    color: var(--color-text-primary);
+}
+
+.frame-button[aria-selected="true"] {
+    border-color: var(--color-text-secondary);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+}
+
+/* Output Selector */
+.output-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.output-unit-display {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.output-unit-note {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Frame Views */
+.frame-views {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.frame-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.frame-view[hidden] {
+    display: none;
+}
+
+.frame-header h2 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+/* Indicator Toggles */
+.indicator-toggles {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+}
+
+.indicator-toggle {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-accent-neutral);
+}
+
+.toggle-text {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* Chart Container */
+.chart-container {
+    flex: 1;
+    min-height: 280px;
+}
+
+.chart-area {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr 40px;
+    height: 100%;
+    min-height: 280px;
+    gap: var(--spacing-sm);
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: var(--spacing-sm);
+    border-right: 1px solid var(--color-border);
+}
+
+.chart-y-axis .axis-label {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.axis-ticks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    padding: var(--spacing-sm) 0;
+}
+
+.chart-plot-area {
+    background-color: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-x-axis {
+    grid-column: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-border);
+}
+
+.chart-x-axis .axis-label {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-text-muted);
+}
+
+.empty-icon {
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+/* Frame Notices */
+.frame-notices {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.notice {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* No Frame Selected */
+.no-selection-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    min-height: 400px;
+}
+
+.no-selection-state p {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.exclusion-notice {
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+/* App Footer */
+.app-footer {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.exclusion-statement,
+.limit-statement {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        padding: var(--spacing-md);
+    }
+    
+    .control-panel {
+        flex-direction: column;
+    }
+    
+    .frame-selector {
+        flex-direction: column;
+    }
+    
+    .frame-button {
+        width: 100%;
+        text-align: center;
+    }
+}
